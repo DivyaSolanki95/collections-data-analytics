@@ -28,7 +28,7 @@ Campaign and channel performance varies, and agent and vendor performance also
 shows differences across the collection operation.
 
 PTP volume should not be treated as equivalent to successful collection.
-The observed PTP fulfillment rate is only **3.54%**, so recorded PTPs need to
+The observed PTP fulfillment rate is only **7.09%**, so recorded PTPs need to
 be validated against subsequent successful payments.
 
 ---
@@ -53,7 +53,7 @@ of reported recovery:
    comparisons.
 
 4. **PTP conversion:** Recorded PTPs do not necessarily result in successful
-   payments. The observed PTP fulfillment rate is 3.54%.
+   payments. The observed PTP fulfillment rate is 7.09%.
 
 5. **Attribution limitations:** 25 payments have multiple attribution records,
    creating a potential excess attributed amount of ₹1,782,308.87. Attributed

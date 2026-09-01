@@ -41,7 +41,7 @@ reliable conclusions.
 | Recovery per agent-hour | ₹4,888.26 |
 | Contact rate | 47.65% |
 | PTP rate | 99.98% |
-| PTP kept rate | 3.54% |
+| PTP kept rate | 24.94% |
 
 ---
 
