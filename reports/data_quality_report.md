@@ -13,11 +13,13 @@ evidence.
 
 | Issue ID | Dataset | Issue | Detection Method | Treatment / Decision | Business Impact |
 |---|---|---|---|---|---|
-| DQ-001 | payments | Repeated payment identifiers / references observed | Payment identifier profiling | Investigate before applying business-key deduplication | Potential recovery inflation if repeated identifiers represent duplicate payment events; no financial impact quantified yet |
-| DQ-002 | accounts | Unmatched borrower identifiers observed | Account-to-borrower entity resolution | Preserve account and flag unresolved borrower relationship | May affect borrower-level segmentation and attribution; no financial impact quantified yet |
-| DQ-003 | account_status_history | Current and historical account status may differ | Latest historical status comparison | Preserve history and flag mismatches | Prevents historical state from being silently overwritten; impact not quantified yet |
-
----
+| DQ-001 | payments | Repeated payment identifiers / references observed | Payment identifier profiling and duplicate-event investigation | Retain payment references; exclude only verified exact duplicate rows | 3,284 repeated references were observed, but 0 exact duplicate rows and ₹0 exact-duplicate financial impact were identified |
+| DQ-002 | accounts | Unmatched borrower identifiers observed | Account-to-borrower entity resolution | Preserve account and flag unresolved borrower relationship | May affect borrower-level segmentation and attribution; no validated financial impact quantified |
+| DQ-003 | account_status_history | Current and historical account status may differ | Latest historical status comparison | Preserve history and flag mismatches | Prevents historical state from being silently overwritten |
+| DQ-004 | payments | Payment timestamps are timezone-naive | Timestamp format and timezone-label profiling | Preserve source timestamps; do not apply an assumed timezone conversion | 21.25% of payment events occur between 22:00 and 02:59 and may be sensitive to calendar-date shifts |
+| DQ-005 | vendor_telephony | Vendor mapping changes investigated | Vendor identifier consistency check | Retain vendor_id as the stable identifier | No conflicting vendor names, vendor accounts, timezones, or schema versions detected |
+| DQ-006 | agents | Agent identifiers reused across conflicting identities | Agent identity profiling | Do not treat agent_id as a unique person-level key; flag identity conflicts | 1,000 agent IDs show conflicting identity attributes |
+| DQ-007 | attribution | Multiple attribution records for the same payment | Payment-level attribution investigation | Use successful payments as source of truth; require mutually exclusive attribution for operational comparisons | 25 payments have multiple attribution records with ₹1,782,308.87 potential excess attributed recovery |
 
 ## Detailed Findings
 
@@ -81,9 +83,21 @@ The analysis follows these principles:
 
 ## Limitations
 
-The current quality log identifies potential data-quality risks but does not
-provide a validated record count or financial impact for each issue.
+The investigation identified several data-quality and analytical limitations.
 
-Therefore, this report does not invent affected-record counts or monetary
-impact estimates. Further validation is required before assigning a
-quantitative financial impact to these findings.
+Repeated payment references do not represent confirmed duplicate payment
+events. The investigation identified 3,284 repeated references but 0 exact
+duplicate rows, so no duplicate-payment financial impact is claimed.
+
+Payment timestamps are timezone-naive. No source timezone is explicitly
+provided, so an assumed timezone conversion is not applied.
+
+Agent identifiers are reused across conflicting identity attributes, requiring
+caution when interpreting agent-level performance.
+
+Attribution overlap can create double-counting within campaign, agent, or
+vendor attribution views. The source-of-truth recovery metric therefore
+remains based on successful payment events.
+
+Where evidence does not support a reliable quantitative financial impact, no
+monetary estimate is invented.

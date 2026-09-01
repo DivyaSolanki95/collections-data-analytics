@@ -35,39 +35,58 @@ be validated against subsequent successful payments.
 
 ## Why Did It Happen?
 
-The available evidence indicates several factors that can influence reported
-recovery:
 
-1. **Portfolio mix:** Recovery varies across DPD and risk segments.
+The available evidence identifies several factors that can influence interpretation
+of reported recovery:
+
+1. **Portfolio mix:** Recovery varies descriptively across DPD and risk
+   segments, but the statistical tests did not establish a significant
+   difference in successful-payment outcome by risk segment (p = 0.468456)
+   or DPD bucket (p = 0.091219).
+
 2. **Campaign and channel differences:** Collection outcomes vary across
-   campaigns and channels.
-3. **Operational variation:** Agent and vendor performance differs.
+   campaigns and channels, but these observational differences should not be
+   interpreted as causal effects.
+
+3. **Operational variation:** Agent and vendor performance differs, while
+   agent identity conflicts require caution when interpreting agent-level
+   comparisons.
+
 4. **PTP conversion:** Recorded PTPs do not necessarily result in successful
-   payments.
-5. **Data-quality limitations:** Data-quality and attribution limitations can
-   affect comparisons and interpretation.
+   payments. The observed PTP fulfillment rate is 7.09%.
 
-These findings should be interpreted as evidence of contributing factors,
-not proof of causality.
+5. **Attribution limitations:** 25 payments have multiple attribution records,
+   creating a potential excess attributed amount of ₹1,782,308.87. Attributed
+   recovery should therefore not replace the source-of-truth successful
+   payment metric.
 
----
+6. **Data-quality and timestamp limitations:** Payment timestamps are
+   timezone-naive, and 21.25% of payment events occur near midnight. Repeated
+   payment references were also observed, although no exact duplicate payment
+   rows were identified.
+
+These findings should be interpreted as evidence of contributing factors and
+data limitations, not proof of causality.
 
 ## How Confident Are We?
 
 **High confidence:** The independently calculated recovery rate is **12.31%**
 under the reconciled recovery definition used in the analysis.
 
-**Strong evidence:** Recovery varies across DPD and risk segments, and
-performance varies across campaigns, channels, agents, and vendors.
+**Strong evidence:** The supplied data supports the existence of differences
+across campaigns, channels, agents, and vendors, but these are observational
+comparisons.
 
-**Limitation:** The analysis does not establish that any individual campaign,
-channel, agent, vendor, or portfolio segment caused the observed recovery
-differences.
+**Statistical evidence:** Successful-payment outcome was not statistically
+significantly different across risk segments (p = 0.468456) or DPD buckets
+(p = 0.091219) at the 5% significance level.
 
-Data-quality and attribution limitations also require explicit consideration
-in recurring management reporting.
+**Limitations:** Attribution overlap, agent identity conflicts, timezone-naive
+timestamps, and repeated payment references require explicit consideration
+when interpreting operational comparisons.
 
----
+The analysis does not establish that any individual campaign, channel, agent,
+vendor, DPD bucket, or risk segment caused the observed recovery differences.
 
 ## Recommendation
 
@@ -103,11 +122,28 @@ controlled or quasi-experimental evaluation.
 
 ---
 
+
 ## Decision
 
-**Do not treat the reported 11% improvement as a standalone proof of
+**Do not treat the reported 11% improvement as standalone proof of
 operational improvement.**
 
 Use the reconciled **12.31% recovery rate** as the independently calculated
-reference metric, and investigate portfolio mix, attribution, campaign,
-channel, agent, and vendor differences before making investment decisions.
+reference metric.
+
+The analysis found no statistically significant difference in successful
+payment outcome across risk segments (p = 0.468456) or DPD buckets
+(p = 0.091219) at the 5% significance level.
+
+Before making operational investment decisions, management should also account
+for:
+
+- **3,284** repeated payment references, with **0 exact duplicate rows**
+- timezone-naive payment timestamps, with **21.25%** of events near midnight
+- **1,000** agent IDs with conflicting identity attributes
+- **25** multi-attributed payments with **₹1,782,308.87** potential excess
+  attributed recovery
+
+Campaign, channel, agent, and vendor comparisons should therefore use
+validated attribution and identity rules and should not be interpreted as
+causal evidence without a controlled or quasi-experimental evaluation.
