@@ -1,0 +1,11 @@
+dataset,purpose
+executive_snapshot,Executive KPI cards and recovery claim
+monthly_recovery,Recovery trend over time
+recovery_by_dpd,Recovery by DPD bucket
+recovery_by_risk_segment,Recovery by risk segment
+recovery_by_loan_type,Recovery by loan type
+campaign_performance,Campaign performance and attribution
+channel_performance,Channel performance
+agent_performance,Agent performance
+vendor_performance,Vendor performance
+ptp_fulfillment_summary,PTP integrity and fulfillment

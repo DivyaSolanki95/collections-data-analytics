@@ -1,0 +1,2 @@
+total_accounts,total_outstanding,recovered_amount,calculated_recovery_rate_pct,reported_recovery_rate_pct,difference_vs_reported_pp,successful_payment_accounts,payment_account_coverage_pct,valid_ptp_records,ptp_fulfillment_rate_pct
+30000,10489035343.0,1291463001.9499998,12.312505008497993,11.0,1.3125050084979932,13109,43.696666666666665,18000,7.094444444444445

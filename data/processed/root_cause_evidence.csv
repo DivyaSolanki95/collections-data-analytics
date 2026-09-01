@@ -1,0 +1,10 @@
+analysis_area,metric,value,unit
+Overall Recovery,Calculated Recovery Rate,12.312505008497993,%
+Overall Recovery,Reported Recovery Rate,11.0,%
+Overall Recovery,Difference vs Reported,1.3125050084979932,percentage points
+Portfolio,Total Accounts,30000.0,accounts
+Portfolio,Total Outstanding,10489035343.0,₹
+Payments,Recovered Amount,1291463001.9499998,₹
+Payments,Successful Payment Accounts,13109.0,accounts
+Payments,Account Payment Coverage,43.696666666666665,%
+PTP,PTP Fulfillment Rate,7.094444444444445,%
