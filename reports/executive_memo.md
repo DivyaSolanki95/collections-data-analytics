@@ -2,184 +2,91 @@
 
 ## Executive Summary
 
-The business-reported claim that recovery has improved by 11% is not
-supported by the independent recovery calculation used in this analysis.
+The business-reported claim that recovery has improved by 11% month-on-month is **not supported as a sustained improvement** by the supplied data.
 
-Using the reconciled recovery definition, the calculated recovery rate is
-**12.31%**, compared with the reported **11.00%**.
+Using the reconciled recovery definition, independently calculated recovery rate is **12.31%**, compared with the reported **11.00%**. Monthly recovery shows a rebound of approximately 11% in one period, but the broader trend does not establish a sustained month-on-month improvement.
 
-The analysis also shows that aggregate recovery is influenced by differences
-across DPD and risk segments, while campaign, channel, agent, and vendor
-performance varies materially. These factors mean that aggregate recovery
-should not be interpreted as pure operational improvement without controlling
-for portfolio composition and attribution.
-
----
+Recovery also varies across DPD and risk segments, while campaign, channel, agent, and vendor performance show operational differences. These comparisons are observational and should not be interpreted as causal without controlling for portfolio mix and attribution.
 
 ## What Happened?
 
-The independently calculated recovery rate from the supplied data is
-**12.31%**, compared with the reported **11.00%**.
+- Independently calculated recovery rate: **12.31%**
+- Reported recovery rate: **11.00%**
+- Variance: **+1.31 percentage points**
+- Total recovered: **₹129.15 Cr**
+- Total outstanding: **₹1,048.90 Cr**
+- Total accounts: **30,000**
+- Paying accounts: **13,109**
+- PTP fulfillment rate: **7.09%**
 
-Recovery also differs across DPD and risk segments, indicating that changes in
-portfolio composition can materially influence the aggregate recovery result.
-
-Campaign and channel performance varies, and agent and vendor performance also
-shows differences across the collection operation.
-
-PTP volume should not be treated as equivalent to successful collection.
-The observed PTP fulfillment rate is only **7.09%**, so recorded PTPs need to
-be validated against subsequent successful payments.
-
----
+The data supports a short-term recovery rebound, but not a reliable conclusion that recovery has continuously improved by 11% month-on-month.
 
 ## Why Did It Happen?
 
+Several factors can influence the aggregate recovery result:
 
-The available evidence identifies several factors that can influence interpretation
-of reported recovery:
+1. **Portfolio mix:** Recovery varies descriptively across DPD and risk segments. Statistical tests did not establish significant differences in successful-payment outcomes by risk segment (p = 0.468456) or DPD bucket (p = 0.091219).
 
-1. **Portfolio mix:** Recovery varies descriptively across DPD and risk
-   segments, but the statistical tests did not establish a significant
-   difference in successful-payment outcome by risk segment (p = 0.468456)
-   or DPD bucket (p = 0.091219).
+2. **Campaign and channel differences:** Collection outcomes vary across campaigns and channels, but these are observational comparisons and do not establish causal effects.
 
-2. **Campaign and channel differences:** Collection outcomes vary across
-   campaigns and channels, but these observational differences should not be
-   interpreted as causal effects.
+3. **Operational variation:** Agent and vendor performance differs. However, **1,000 agent IDs have conflicting identity attributes**, requiring caution in agent-level comparisons.
 
-3. **Operational variation:** Agent and vendor performance differs, while
-   agent identity conflicts require caution when interpreting agent-level
-   comparisons.
+4. **PTP conversion:** Recorded PTPs do not necessarily result in successful payments. The observed PTP fulfillment rate is only **7.09%**, so PTP outcomes should be validated against subsequent successful payments.
 
-4. **PTP conversion:** Recorded PTPs do not necessarily result in successful
-   payments. The observed PTP fulfillment rate is 7.09%.
+5. **Attribution limitations:** **25 payments** have multiple attribution records, creating a potential excess attributed recovery of **₹1,782,308.87**. Source-of-truth successful payments should therefore remain the primary recovery metric.
 
-5. **Attribution limitations:** 25 payments have multiple attribution records,
-   creating a potential excess attributed amount of ₹1,782,308.87. Attributed
-   recovery should therefore not replace the source-of-truth successful
-   payment metric.
+6. **Data-quality and timestamp limitations:** Payment timestamps are timezone-naive, with **21.25%** of payment events occurring near midnight. There are also **3,284 repeated payment references**, although **0 exact duplicate payment rows** were identified.
 
-6. **Data-quality and timestamp limitations:** Payment timestamps are
-   timezone-naive, and 21.25% of payment events occur near midnight. Repeated
-   payment references were also observed, although no exact duplicate payment
-   rows were identified.
-
-These findings should be interpreted as evidence of contributing factors and
-data limitations, not proof of causality.
+These findings indicate contributing factors and data limitations, not proof of causality.
 
 ## How Confident Are We?
 
-**High confidence:** The independently calculated recovery rate is **12.31%**
-under the reconciled recovery definition used in the analysis.
+**High confidence:** The reconciled recovery rate of **12.31%** is supported by the supplied payment and portfolio data.
 
-**Strong evidence:** The supplied data supports the existence of differences
-across campaigns, channels, agents, and vendors, but these are observational
-comparisons.
+**Strong evidence:** Differences exist across campaigns, channels, agents, and vendors, but these are observational comparisons.
 
-**Statistical evidence:** Successful-payment outcome was not statistically
-significantly different across risk segments (p = 0.468456) or DPD buckets
-(p = 0.091219) at the 5% significance level.
+**Statistical evidence:** Successful-payment outcomes were not statistically significantly different across risk segments or DPD buckets at the 5% significance level.
 
-**Limitations:** Attribution overlap, agent identity conflicts, timezone-naive
-timestamps, and repeated payment references require explicit consideration
-when interpreting operational comparisons.
+**Limited causal confidence:** The available observational data does not establish that any specific campaign, channel, agent, vendor, DPD bucket, or risk segment caused the observed recovery differences.
 
-The analysis does not establish that any individual campaign, channel, agent,
-vendor, DPD bucket, or risk segment caused the observed recovery differences.
+## Investment Recommendation
 
-## Recommendation
-
-Management reporting should use the reconciled recovery definition
-consistently rather than relying on the reported 11% figure.
-
-For operational decisions:
-
-- Track recovery using consistent DPD and risk-segment cohorts.
-- Compare campaigns using common targeting and attribution definitions.
-- Use normalized productivity and recovery metrics for agent and vendor
-  evaluation.
-- Measure PTP fulfillment using independently matched payment outcomes.
-- Maintain explicit data-quality flags and metric definitions.
-
-No single operational investment should be scaled solely from aggregate
-recovery comparisons without controlling for portfolio mix and attribution.
-
----
-
-## Expected Financial Impact
-
-A ₹10 Cr investment was evaluated using explicit downside, base, and
-upside recovery scenarios.
+A **₹10 Cr investment** was evaluated using explicit downside, base, and upside recovery scenarios.
 
 | Scenario | Incremental Recovery | Net Value After Investment | Simple ROI |
 |---|---:|---:|---:|
 | Downside | ₹5 Cr | -₹5 Cr | -50% |
 | Base | ₹10 Cr | ₹0 | 0% |
-| Upside | ₹15 Cr | +₹5 Cr | 50% |
+| Upside | ₹15 Cr | +₹5 Cr | +50% |
 
-The ₹10 Cr investment requires at least **₹10 Cr of incremental recovery**
-to break even. Against the current **12.31%** baseline recovery rate, this
-corresponds to approximately **+0.95 percentage points**, producing a
-break-even total recovery rate of approximately **13.27%**.
+The investment requires at least **₹10 Cr of incremental recovery to break even**.
 
-The base scenario therefore represents break-even rather than an attractive
-return, while the downside scenario produces a material loss. The upside
-scenario produces positive value, but the available observational data does
-not provide sufficient evidence to assume that the upside outcome will occur.
+Against the current **12.31% baseline recovery rate**, this corresponds to approximately **+0.95 percentage points** of recovery-rate lift, producing a break-even total recovery rate of approximately **13.27%**.
 
-The recommended approach is therefore a **controlled pilot or staged
-investment**, with scaling conditional on demonstrating incremental recovery
-above the ₹10 Cr break-even threshold under a fixed attribution and evaluation
-framework.
----
+The base case therefore represents break-even rather than an attractive return. The available observational data does not provide sufficient evidence to assume the upside outcome will occur.
 
-
-## Decision
+### Decision
 
 **Do not approve the full ₹10 Cr investment unconditionally.**
 
-Use the reconciled **12.31% recovery rate** as the independently calculated
-reference metric and evaluate any investment using incremental recovery
-rather than aggregate recovery alone.
+Run a **controlled pilot or staged investment** and scale only if measured incremental recovery exceeds the **₹10 Cr break-even threshold** under a fixed attribution and evaluation framework.
 
-The ₹10 Cr investment has a **₹10 Cr incremental-recovery break-even point**,
-equivalent to approximately **+0.95 percentage points** of recovery-rate
-lift.
-
-The recommended decision is to run a **controlled pilot or staged investment**
-and scale only if measured incremental recovery exceeds the break-even
-threshold.
-
-Management should continue to account for:
-
-- **3,284** repeated payment references, with **0 exact duplicate rows**
-- timezone-naive payment timestamps, with **21.25%** of events near midnight
-- **1,000** agent IDs with conflicting identity attributes
-- **25** multi-attributed payments with **₹17,82,308.87** potential excess
-  attributed recovery
-
-Campaign, channel, agent, and vendor comparisons should use validated
-attribution and identity rules and should not be interpreted as causal
-evidence without a controlled or quasi-experimental evaluation.
-
-### Key Assumptions
+## Key Assumptions
 
 - The ₹10 Cr represents the full investment cost.
 - Incremental recovery is measured against the reconciled baseline.
-- The evaluation uses a fixed and documented attribution window.
-- Incremental recovery is measured against a comparable control or baseline
-  population.
-- The downside/base/upside scenarios are decision scenarios, not causal
-  forecasts.
+- Evaluation uses a fixed and documented attribution window.
+- Incremental recovery is measured against a comparable control or baseline population.
+- Downside, base, and upside scenarios are decision scenarios, not causal forecasts.
 
-### Confidence
+## Management Actions
 
-**High confidence:** The reconciled baseline recovery rate of 12.31%.
+Management should:
 
-**Moderate decision confidence:** The break-even arithmetic and scenario
-framework.
-
-**Limited causal confidence:** The available observational data does not
-establish that a specific operational intervention will generate the
-assumed incremental recovery.
+- Use the reconciled **12.31% recovery rate** consistently rather than relying on the reported 11% figure.
+- Track recovery using consistent DPD and risk-segment cohorts.
+- Compare campaigns using common targeting and attribution definitions.
+- Use normalized productivity and recovery metrics for agent and vendor evaluation.
+- Measure PTP fulfillment using independently matched payment outcomes.
+- Maintain explicit data-quality flags and metric definitions.
+- Evaluate the ₹10 Cr investment through a controlled pilot with predefined success and stop/scale criteria.
